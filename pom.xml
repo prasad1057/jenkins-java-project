@@ -9,8 +9,10 @@
 	<url>http://maven.apache.org</url>
 	
 	<properties>
-		<docker.image.prefix>kammana</docker.image.prefix>
-	</properties>	
+	    <docker.image.prefix>kammana</docker.image.prefix>
+   	 	<java.version>11</java.version>
+	</properties>
+	
 	<dependencies>
 		<dependency>
 		    <groupId>com.oracle.bedrock</groupId>
@@ -18,12 +20,14 @@
 		    <version>5.1.2</version>
 		</dependency>
 		
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>3.8.1</version>
-			<scope>test</scope>
-		</dependency>
+	<dependency>
+	    <groupId>org.junit.jupiter</groupId>
+	    <artifactId>junit-jupiter</artifactId>
+	    <version>5.9.3</version>
+	    <scope>test</scope>
+	</dependency>
+
+
 
 	</dependencies>
 	
@@ -46,6 +50,21 @@
 		<url>http://repo1.maven.org/maven2</url>
 	    </pluginRepository>
 	</pluginRepositories>
+
+	<build>
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.8.1</version>
+            <configuration>
+                <source>${java.version}</source>
+                <target>${java.version}</target>
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
+
 
 	
 </project>
